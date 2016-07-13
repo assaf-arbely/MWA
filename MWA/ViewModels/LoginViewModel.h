@@ -8,10 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol LoginViewModelDelegate;
 @interface LoginViewModel : NSObject
-
-+ (id)sharedInstanceWithViewController:(UIViewController *)viewController;
-
+- (id)initWithDelegate:(id)delegate;
 - (void)authorizeWith:(NSString *)username password:(NSString *)pass url:(NSString *)urlString;
-
 @end
+
+@protocol LoginViewModelDelegate <NSObject>
+@optional
+- (void)validUsernamePassword:(BOOL)isValid;
+- (void)validServer:(BOOL)isValid;
+- (void)receivedError:(NSError *)error;
+- (void)success;
+@end
+

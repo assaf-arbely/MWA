@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "349DF5241D3397DA0069FF96"
-               BuildableName = "MWA - release.app"
-               BlueprintName = "MWA - release"
+               BuildableName = "MWA.app"
+               BlueprintName = "MWA"
                ReferencedContainer = "container:MWA.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "349DF5241D3397DA0069FF96"
-            BuildableName = "MWA - release.app"
-            BlueprintName = "MWA - release"
+            BuildableName = "MWA.app"
+            BlueprintName = "MWA"
             ReferencedContainer = "container:MWA.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -56,8 +56,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "349DF5241D3397DA0069FF96"
-            BuildableName = "MWA - release.app"
-            BlueprintName = "MWA - release"
+            BuildableName = "MWA.app"
+            BlueprintName = "MWA"
             ReferencedContainer = "container:MWA.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -75,8 +75,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "349DF5241D3397DA0069FF96"
-            BuildableName = "MWA - release.app"
-            BlueprintName = "MWA - release"
+            BuildableName = "MWA.app"
+            BlueprintName = "MWA"
             ReferencedContainer = "container:MWA.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

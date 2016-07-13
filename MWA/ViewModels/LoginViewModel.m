@@ -12,30 +12,17 @@
 #import "LoginViewController.h"
 
 @interface LoginViewModel ()
-@property (strong, nonatomic) UIViewController *viewController;
 @property (strong, nonatomic) AuthModel *model;
+@property (nonatomic, strong) id <LoginViewModelDelegate> loginDelegate;
 @end
 
 @implementation LoginViewModel
 
-+ (id)sharedInstanceWithViewController:(LoginViewController *)viewController {
-    // this prevents duplicated instances and create a shared one
-    
-    static LoginViewModel *viewModel = nil;
-    static dispatch_once_t onceToken;
-    
-    dispatch_once(&onceToken, ^{
-        viewModel = [[self alloc] initWithViewController:viewController];
-    });
-    
-    return viewModel;
-}
-
-- (id) initWithViewController:(UIViewController *)viewController {
+- (id)initWithDelegate:(id)delegate {
     self = [super init];
     
     if (self) {
-        self.viewController = viewController;
+        self.loginDelegate = delegate;
         
         self.model = [AuthModel sharedInstance];
     }
@@ -45,26 +32,31 @@
 
 - (void)authorizeWith:(NSString *)username password:(NSString *)pass url:(NSString *)urlString{
     [self.model authorizeWith:username password:pass url:urlString callback:^(id responce, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if ([_viewController isKindOfClass:[LoginViewController class]]){
+        dispatch_async(dispatch_get_main_queue(), ^{                
+                if ([self safeDelegateCall:@selector(validUsernamePassword:)]){
+                        [self.loginDelegate validUsernamePassword:YES];
+                }
                 
-                LoginViewController *loginViewController = (LoginViewController *)_viewController;
-                
-                [loginViewController.userNameTextField isValid:YES];
-                [loginViewController.passwordTextField isValid:YES];
-                [loginViewController.serverTextField isValid:YES];
+                if ([self safeDelegateCall:@selector(validServer:)]){
+                    [self.loginDelegate validServer:YES];
+                }
                 
                 if (error){
+              
                     if (error.code == kWrongUsernameCode){
-                        [loginViewController.userNameTextField isValid:NO];
-                        [loginViewController.passwordTextField isValid:NO];
-                        
-                        [loginViewController.errorMessageLabel setText:error.localizedDescription];
+                        if ([self safeDelegateCall:@selector(validUsernamePassword:)]){
+                            [self.loginDelegate validUsernamePassword:NO];
+                        }
                     }
+                    
                     if (error.code == kWrongServerURLCode){
-                        [loginViewController.serverTextField isValid:NO];
-                        
-                        [loginViewController.errorMessageLabel setText:error.localizedDescription];
+                        if ([self safeDelegateCall:@selector(validUsernamePassword:)]){
+                            [self.loginDelegate validServer:NO];
+                        }
+                    }
+                    
+                    if ([self safeDelegateCall:@selector(receivedError:)]){
+                        [self.loginDelegate receivedError:error];
                     }
                 } else {
                     #warning TODO: Improve this part when API availible
@@ -78,13 +70,20 @@
                             //Handle errors
                         }
                     }
-                    [self.viewController performSegueWithIdentifier:@"authorizedSegue" sender:nil];
+                    if ([self safeDelegateCall:@selector(success)]){
+                        [self.loginDelegate success];
+                    }
                 }
-            } else {
-                #warning TODO: Callback to User's ViewController (delegate?)
-            }
         });
     }];
 }
 
+- (BOOL)safeDelegateCall:(SEL)selector{
+    if (self.loginDelegate){
+        if ([self.loginDelegate respondsToSelector:selector]){
+            return YES;
+        }
+    }
+    return NO;
+}
 @end

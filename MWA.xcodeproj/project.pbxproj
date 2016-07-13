@@ -81,7 +81,7 @@
 		34315E381D36278C00A9DE92 /* KeychainHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainHelper.m; sourceTree = "<group>"; };
 		34315E5B1D36367F00A9DE92 /* MWA - debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MWA - debug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34315E5D1D363EDD00A9DE92 /* MWA debug-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MWA debug-Info.plist"; sourceTree = "<group>"; };
-		349DF5251D3397DA0069FF96 /* MWA - release.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MWA - release.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		349DF5251D3397DA0069FF96 /* MWA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MWA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		349DF5291D3397DA0069FF96 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		349DF52B1D3397DB0069FF96 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		349DF52C1D3397DB0069FF96 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -203,7 +203,7 @@
 		349DF5261D3397DA0069FF96 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				349DF5251D3397DA0069FF96 /* MWA - release.app */,
+				349DF5251D3397DA0069FF96 /* MWA.app */,
 				34315E5B1D36367F00A9DE92 /* MWA - debug.app */,
 			);
 			name = Products;
@@ -287,9 +287,9 @@
 			productReference = 34315E5B1D36367F00A9DE92 /* MWA - debug.app */;
 			productType = "com.apple.product-type.application";
 		};
-		349DF5241D3397DA0069FF96 /* MWA - release */ = {
+		349DF5241D3397DA0069FF96 /* MWA */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 349DF53C1D3397DB0069FF96 /* Build configuration list for PBXNativeTarget "MWA - release" */;
+			buildConfigurationList = 349DF53C1D3397DB0069FF96 /* Build configuration list for PBXNativeTarget "MWA" */;
 			buildPhases = (
 				349DF5211D3397DA0069FF96 /* Sources */,
 				349DF5221D3397DA0069FF96 /* Frameworks */,
@@ -299,9 +299,9 @@
 			);
 			dependencies = (
 			);
-			name = "MWA - release";
+			name = MWA;
 			productName = MWA;
-			productReference = 349DF5251D3397DA0069FF96 /* MWA - release.app */;
+			productReference = 349DF5251D3397DA0069FF96 /* MWA.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -331,7 +331,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				349DF5241D3397DA0069FF96 /* MWA - release */,
+				349DF5241D3397DA0069FF96 /* MWA */,
 				34315E3E1D36367F00A9DE92 /* MWA - debug */,
 			);
 		};
@@ -547,6 +547,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				GCC_PREFIX_HEADER = MWA/MWA.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				INFOPLIST_FILE = MWA/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -592,7 +593,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		349DF53C1D3397DB0069FF96 /* Build configuration list for PBXNativeTarget "MWA - release" */ = {
+		349DF53C1D3397DB0069FF96 /* Build configuration list for PBXNativeTarget "MWA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				349DF53D1D3397DB0069FF96 /* Debug */,

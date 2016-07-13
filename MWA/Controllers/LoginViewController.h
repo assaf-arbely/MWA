@@ -7,15 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LoginViewModel.h"
 
-@interface LoginViewController : UITableViewController <UITextFieldDelegate>
+@interface LoginViewController : UITableViewController <UITextFieldDelegate, LoginViewModelDelegate>
 
-@property (weak, nonatomic) IBOutlet UIButton *loginButton;
-
-@property (weak, nonatomic) IBOutlet UITextField *serverTextField;
-@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
-@property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
-@property (weak, nonatomic) IBOutlet UILabel *errorMessageLabel;
-
++ (LoginViewController *)getController;
 
 @end

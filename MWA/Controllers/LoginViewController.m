@@ -7,18 +7,32 @@
 //
 
 #import "LoginViewController.h"
-#import "LoginViewModel.h"
 #import "UITextField+MWA.h"
 
 @interface LoginViewController ()
 
 @property (nonatomic, strong) LoginViewModel *model;
 
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (weak, nonatomic) IBOutlet UITextField *serverTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
+@property (weak, nonatomic) IBOutlet UILabel *errorMessageLabel;
+
 - (IBAction)loginAction:(id)sender;
 
 @end
 
 @implementation LoginViewController
+
++ (LoginViewController *)getController{
+    
+    //For SDK need separate bundle with own storyboard.
+    //Call [self.storyboard instantiateViewControllerWithIdentifier:@"MWALoginViewController"] instead init
+    
+    LoginViewController *loginViewController = [[LoginViewController alloc] init];
+    return loginViewController;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,8 +44,7 @@
     
     [self setupUI];
     
-    _model = [LoginViewModel sharedInstanceWithViewController:self];
-    
+    _model = [[LoginViewModel alloc] initWithDelegate:self];
 
 #ifdef DEBUG
     //Fill text fields with predefined values from Constants.h
@@ -97,5 +110,22 @@
     [_model authorizeWith:_userNameTextField.text password:_passwordTextField.text url:_serverTextField.text];
 }
 
+#pragma mark - LoginViewModel Delegate
 
+- (void)validUsernamePassword:(BOOL)isValid;{
+    [_userNameTextField isValid:isValid];
+    [_passwordTextField isValid:isValid];
+}
+
+- (void)validServer:(BOOL)isValid{
+    [_serverTextField isValid:isValid];
+}
+
+- (void)receivedError:(NSError *)error{
+    [_errorMessageLabel setText:error.localizedDescription];
+}
+
+- (void)success{
+    [self performSegueWithIdentifier:@"authorizedSegue" sender:nil];
+}
 @end
