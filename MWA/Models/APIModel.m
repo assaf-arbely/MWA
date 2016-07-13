@@ -75,14 +75,19 @@ static CGFloat defaultTimeout = 60.0f;
         MWALog(@"No parameters for this request");
     }
     NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        id jsonObj = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-        BOOL isValid = [NSJSONSerialization isValidJSONObject:jsonObj];
-        if (isValid){
-            callback(jsonObj, nil);
-            MWALog(@"%@",NSStringFromClass([jsonObj class]));
-            MWALog(@"%@",jsonObj);
-        } else if (error){
-            callback(nil, error);
+        if (data){
+            id jsonObj = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+            BOOL isValid = [NSJSONSerialization isValidJSONObject:jsonObj];
+            if (isValid){
+                callback(jsonObj, nil);
+                MWALog(@"%@",NSStringFromClass([jsonObj class]));
+                MWALog(@"%@",jsonObj);
+            } else if (error){
+                callback(nil, error);
+            } else {
+                callback(nil, nil);
+                MWALog(@"Unkown Error");
+            }
         } else {
             callback(nil, nil);
             MWALog(@"Unkown Error");

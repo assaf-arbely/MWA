@@ -1,0 +1,32 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "689400FF51D0D7FB002A6021788B130E2337A036",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "33a9f003-0c80-4fa1-82a2-9c75d4d68f7a" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "33a9f003-0c80-4fa1-82a2-9c75d4d68f7a" : 0,
+    "689400FF51D0D7FB002A6021788B130E2337A036" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "84C4EC9A-B289-49EA-99CB-699F8998C2D9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "33a9f003-0c80-4fa1-82a2-9c75d4d68f7a" : "",
+    "689400FF51D0D7FB002A6021788B130E2337A036" : "MWA-app\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "MWA",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "MWA.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/br-lnx1.corp.good.com\/svn",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "33a9f003-0c80-4fa1-82a2-9c75d4d68f7a"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/assaf-arbely\/MWA.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "689400FF51D0D7FB002A6021788B130E2337A036"
+    }
+  ]
+}
