@@ -1,0 +1,25 @@
+//
+//  MWA.pch
+//  MWA
+//
+//  Created by Vitalii Popruzhenko on 11.07.16.
+//  Copyright © 2016 verint. All rights reserved.
+//
+
+#ifdef __OBJC__
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+#endif
+
+#ifdef DEBUG
+#   define MWALog(fmt, ...) NSLog((@"<%@> %s [Line %d] " fmt),[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"], __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#else
+#   define MWALog(fmt,...) NSLog((@"<%@> " fmt),[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"], ##__VA_ARGS__)
+#endif
+
+#import "UIDefinitions.h"
+#import "Constants.h"
+
+#import "NSString+MWA.h"
